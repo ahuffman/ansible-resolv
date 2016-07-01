@@ -1,4 +1,4 @@
-Resolv
+ahuffman.resolv
 =========
 
 An Ansible role to configure /etc/resolv.conf
@@ -44,9 +44,9 @@ Example Playbook
 License
 -------
 
-MIT
+[MIT](LICENSE)
 
 Author Information
 ------------------
 
-Andrew J. Huffman
+[Andrew J. Huffman](https://github.com/ahuffman)
