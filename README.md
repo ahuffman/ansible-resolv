@@ -1,10 +1,10 @@
-ahuffman.resolv
-=========
+[![Build Status](https://travis-ci.org/lifeofguenter/ansible-role-resolvconf.svg?branch=master)](https://travis-ci.org/lifeofguenter/ansible-role-resolvconf)
+
+# Ansible Role: resolvconf
 
 An Ansible role to configure /etc/resolv.conf
 
-Role Variables
---------------
+## Role Variables
 
 ### Defaults
 * resolv_nameservers: ''
@@ -23,8 +23,7 @@ List of IP-address and netmask pairs to sort addresses returned by gethostbyname
 List of options to modify certain internal resolver variables.
 
 
-Example Playbook
-----------------
+## Example Playbook
 
     - hosts: all
       vars:
@@ -39,14 +38,8 @@ Example Playbook
           - timeout:2
           - rotate
       roles:
-        - ahuffman.resolv
+        - lifeofguenter.resolvconf
 
-License
--------
+## License
 
 [MIT](LICENSE)
-
-Author Information
-------------------
-
-[Andrew J. Huffman](https://github.com/ahuffman)

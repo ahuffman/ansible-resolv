@@ -1,5 +1,17 @@
 ---
+
 - hosts: localhost
   remote_user: root
+  vars:
+    resolv_nameservers:
+      - 8.8.8.8
+      - 8.8.4.4
+    resolv_domain: foo.org
+    resolv_search:
+      - foo.bar
+      - foobar.com
+    resolv_options:
+      - timeout:2
+      - rotate
   roles:
-    - resolv
+    - ansible-role-resolvconf
