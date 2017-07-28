@@ -12,6 +12,6 @@ nameserver {{ i }}
 {% for i in resolv_sortlist %}
 sortlist {{ i }}
 {% endfor %}
-{% for i in resolv_options %}
-options {{ i }}
-{% endfor %}
+{% if resolv_options %}
+options {{ resolv_options|join(' ') }}
+{% endif %}
