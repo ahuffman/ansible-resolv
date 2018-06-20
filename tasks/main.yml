@@ -1,7 +1,4 @@
 ---
-#Configure resolv.conf
-- name: configure resolv.conf
-  template:
-    src: resolv.conf
-    dest: /etc/resolv.conf
-  become: yes
+
+- import_tasks: config.yml
+  when: ansible_virtualization_type is not defined or ansible_virtualization_type not in resolv_blacklist
