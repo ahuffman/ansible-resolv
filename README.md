@@ -1,52 +1,58 @@
-ahuffman.resolv
-=========
-
+# ahuffman.resolv
 An Ansible role to configure /etc/resolv.conf
 
-Role Variables
---------------
-
+## Role Variables
 ### Defaults
-* resolv_nameservers: ''
-A list of up to 3 nameservers
-
-* resolv_domain: ''
-Local domain name
-
-* resolv_search: ''
-List of up to 6 domains to search for host-name lookup
-
-* resolv_sortlist: ''
-List of IP-address and netmask pairs to sort addresses returned by gethostbyname.
-
-* resolv_options: ''
-List of options to modify certain internal resolver variables.
+| Variable Name | Required | Description | Default Value | Type |
+| --- | :---: | --- | :---: | :---: |
+|resolv_nameservers| yes | A list of up to 3 nameserver IP addresses | [] | list |
+| resolv_domain | no | Local domain name | "" | string |
+| resolv_search | no | List of up to 6 domains to search for host-name lookup | [] | list |
+| resolv_sortlist | no | List of IP-address and netmask pairs to sort addresses returned by gethostbyname. | [] | list |
+| resolv_options | no | List of options to modify certain internal resolver variables. | [] | list |
 
 
-Example Playbook
-----------------
-
-    - hosts: all
+## Example Playbooks
+### Role Invocation
+```yaml
+    - name: "Role Invocation - ahuffman.resolv Example"
+      hosts: "all"
+      roles:
+        - role: "ahuffman.resolv"
+          resolv_nameservers:
+            - "8.8.8.8"
+            - "8.8.4.4"
+          resolv_domain: "foo.org"
+          resolv_search:
+            - "foo.bar"
+            - "foobar.com"
+          resolv_options:
+            - "timeout:2"
+            - "rotate"
+```
+### Included Role
+```yaml
+---
+- name: "Included Role - ahuffman.resolv Example"
+  hosts: "all"
+  tasks:
+    - name: "Configure resolv.conf"
+      include_role:
+        name: "ahuffman.resolv"
       vars:
         resolv_nameservers:
-          - 8.8.8.8
-          - 8.8.4.4
-        resolv_domain: foo.org
+          - "8.8.8.8"
+          - "8.8.4.4"
+        resolv_domain: "foo.org"
         resolv_search:
-          - foo.bar
-          - foobar.com
+          - "foo.bar"
+          - "foobar.com"
         resolv_options:
-          - timeout:2
-          - rotate
-      roles:
-        - ahuffman.resolv
-
-License
--------
-
+          - "timeout:2"
+          - "rotate"
+```
+## License
 [MIT](LICENSE)
 
-Author Information
-------------------
-
+## Author Information
 [Andrew J. Huffman](https://github.com/ahuffman)
