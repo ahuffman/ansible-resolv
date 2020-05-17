@@ -30,6 +30,16 @@ An Ansible role to configure /etc/resolv.conf
             - "timeout:2"
             - "rotate"
 ```
+### Role Invocation with externaly defined variables (group_vars / host_vars)
+```yaml
+    - name: "Role Invocation - ahuffman.resolv Example"
+      hosts: "all"
+      roles:
+        - role: "ahuffman.resolv"
+          when:
+            - resolv_nameservers is defined
+            - resolv_nameservers | length > 0
+```
 ### Included Role
 ```yaml
 ---
