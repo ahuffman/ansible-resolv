@@ -1,4 +1,4 @@
-# {{ ansible_managed }}. role: resolv, template: resolv.conf.j2
+# {{ ansible_managed }}
 
 {% if resolv_search is defined and resolv_search | length > 0 %}
 search {{ resolv_search|join(' ') }}
