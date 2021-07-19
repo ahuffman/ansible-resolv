@@ -1,3 +1,5 @@
+![Ansible Role](https://img.shields.io/ansible/role/d/9527)
+
 # ahuffman.resolv
 An Ansible role to configure /etc/resolv.conf
 
