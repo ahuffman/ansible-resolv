@@ -3,14 +3,3 @@
 resolv_nameservers:
   - 1.1.1.1
   - 8.8.8.8
-
-resolv_domain: ''
-
-resolv_search: ''
-
-resolv_sortlist: ''
-
-resolv_options: ''
-
-resolv_blacklist:
-  - docker

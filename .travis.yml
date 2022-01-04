@@ -1,44 +1,32 @@
 ---
 
-language: python
-python: "2.7"
-sudo: required
-dist: trusty
+dist: focal
+language: minimal
 
-branches:
-  only:
-    - master
-    - /^\d+\.\d+\.\d+$/
+env:
+  - ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3
 
 # Install ansible
 addons:
   apt:
     packages:
-    - python-pip
+      - ansible
+      - ansible-lint
 
 install:
-  - sudo -H easy_install pip
-  # http://urllib3.readthedocs.io/en/latest/user-guide.html#ssl-py2
-  - sudo -H pip install -U pyOpenSSL cryptography idna certifi
-  - sudo -H pip install -U urllib3
-  # https://github.com/ansible/ansible/issues/23642#issuecomment-297469043
-  - sudo -H pip install -U ndg-httpsclient
-
-  # Install ansible
-  - sudo -H pip install -U ansible
-
-  # Check ansible version
+  # Check ansible versions
   - ansible --version
+  - ansible-lint --version
 
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' > ansible.cfg
 
 script:
+  - ansible-lint
   - ansible-playbook tests/test.yml -i tests/inventory --connection=local
-
   - ansible-playbook tests/test.yml -i tests/inventory --connection=local
-  
   - grep -qF foobar /etc/resolv.conf
+  - cat /etc/resolv.conf
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

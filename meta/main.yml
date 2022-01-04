@@ -1,37 +1,38 @@
 ---
 
 galaxy_info:
-  author: Gunter Grodotzki
+  role_name: resolvconf
+  namespace: lifeofguenter
+  author: Günter Grodotzki
   description: An Ansible role to configure /etc/resolv.conf
-  company: 9JKH (Pty) Ltd.
   license: MIT
-  min_ansible_version: 2.5
+  min_ansible_version: '2.10'
   platforms:
-  - name: EL
-    versions:
-      - all
-  - name: GenericUNIX
-    versions:
-      - all
-  - name: Fedora
-    versions:
-      - all
-  - name: opensuse
-    versions:
-      - all
-  - name: Ubuntu
-    versions:
-      - all
-  - name: SLES
-    versions:
-      - all
-  - name: GenericLinux
-    versions:
-      - all
-  - name: Debian
-    versions:
-      - all
-  galaxy_tags: 
+    - name: EL
+      versions:
+        - all
+    - name: GenericUNIX
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: opensuse
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: SLES
+      versions:
+        - all
+    - name: GenericLinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
     - system
     - resolvconf
     - dns

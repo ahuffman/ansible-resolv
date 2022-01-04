@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/lifeofguenter/ansible-role-resolvconf.svg?branch=master)](https://travis-ci.org/lifeofguenter/ansible-role-resolvconf)
+# lifeofguenter.resolvconf
 
-# Ansible Role: resolvconf
+[![Build Status](https://travis-ci.com/lifeofguenter/ansible-role-resolvconf.svg?branch=main)](https://travis-ci.com/lifeofguenter/ansible-role-resolvconf)
 
 An Ansible role to configure /etc/resolv.conf
 
@@ -25,20 +25,22 @@ List of options to modify certain internal resolver variables.
 
 ## Example Playbook
 
-    - hosts: all
-      vars:
-        resolv_nameservers:
-          - 8.8.8.8
-          - 8.8.4.4
-        resolv_domain: foo.org
-        resolv_search:
-          - foo.bar
-          - foobar.com
-        resolv_options:
-          - timeout:2
-          - rotate
-      roles:
-        - lifeofguenter.resolvconf
+```yaml
+- hosts: all
+  vars:
+    resolv_nameservers:
+      - 1.1.1.1
+      - 8.8.8.8
+    resolv_domain: foo.org
+    resolv_search:
+      - foo.bar
+      - foobar.com
+    resolv_options:
+      - timeout:2
+      - rotate
+  roles:
+    - lifeofguenter.resolvconf
+```
 
 ## License
 

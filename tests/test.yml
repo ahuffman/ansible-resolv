@@ -1,7 +1,6 @@
 ---
 
 - hosts: localhost
-  remote_user: root
   vars:
     resolv_nameservers:
       - 8.8.8.8

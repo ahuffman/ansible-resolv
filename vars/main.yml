@@ -1,0 +1,4 @@
+---
+
+resolv_blacklist:
+  - docker
